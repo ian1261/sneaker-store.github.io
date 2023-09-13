@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>產品資訊 - Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <style>
+    /* 圖片樣式 */
+    .extra-product-images {
+      display: flex;
+      flex-direction: column; /* 垂直排列 */
+      align-items: flex-start; /* 左對齊 */
+    }
+
+    .extra-product-images img {
+      width: 100px; /* 设置图片宽度 */
+      height: auto; /* 保持纵横比 */
+      margin-bottom: 10px; /* 添加底部間距 */
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="#">購物車</a></li>
+        <li><a href="#">訂單查詢</a></li>
+        <li><a href="#" onclick="openLoginForm()">會員登入</a></li>
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <img src="shopping cart.png" alt="購物車">
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+  <!-- 產品內容 -->
+  <main>
+    <!-- 細節圖片 -->
+    <div class="extra-product-images">
+      <!-- 細節圖片 -->
+      <img src="SAMBA1.png" alt="额外商品1">
+
+      <!-- 細節圖片 -->
+      <img src="SAMBA2.png" alt="额外商品2">
+
+      <!-- 細節圖片 -->
+      <img src="SAMBA3.png" alt="额外商品3">
+    </div>
+    
+    <section class="product-details">
+      <img src="SAMBA OG.png" alt="SAMBA OG">
+      <h2>SAMBA OG</h2>
+      <p>NT$3680</p>
+      <p>產品介绍...</p>
+      <button>加入購物車</button>
+    </section>
+  </main>
+  <script>
+    // 使用 URL 參數獲取商品訊息
+    const urlParams = new URLSearchParams(window.location.search);
+    const product = urlParams.get('product');
+    const price = urlParams.get('price');
+    
+    // 更新商品訊息
+    const productDetails = document.querySelector('.product-details');
+    const productImage = productDetails.querySelector('img');
+    const productName = productDetails.querySelector('h2');
+    const productPrice = productDetails.querySelector('p');
+    
+    productImage.src = product + '.png';
+    productName.textContent = product;
+    productPrice.textContent = price;
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+/* Reset styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: rgb(20, 37, 84);
+  position: relative;
+}
+
+/* Header styles */
+header {
+  background-color: rgb(182, 106, 106);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+}
+
+h1 {
+  font-size: 50px;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  border-radius: 3px;
+}
+
+nav ul li a:hover {
+  background-color: #ffd700;
+}
+
+/* Main styles */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+
+.product {
+  width: 300px;
+  margin: 20px;
+  padding: 20px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  border: 1px solid #ddd;
+  cursor: pointer;
+  position: relative;
+}
+
+.product img {
+  width: 200px;
+  height: 200px;
+  margin-bottom: 10px;
+}
+
+.product h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.product p {
+  font-size: 16px;
+  color: #888;
+  margin-bottom: 20px;
+}
+
+/* 大鞋櫃*/
+.product.large {
+  width: 1000px;
+  border: none;
+}
+
+.product.large img {
+  width: 100%;
+  height: auto;
+}
+
+/* 購物車圖片樣式*/
+.cart-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.cart-icon img {
+  width: 50px;
+}
+
+/* 购物车功能列样式 */
+.cart-items {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: #0091ff;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+/* 文字置中*/
+.center-text {
+  text-align: center;
+  width: 100%;
+}

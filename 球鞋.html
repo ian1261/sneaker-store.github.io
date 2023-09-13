@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="#">購物車</a></li>
+        <li><a href="#">訂單查詢</a></li>
+        <li><a href="#" onclick="openLoginForm()">會員登入</a></li>
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <img src="shopping cart.png" alt="購物車">
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+  <!-- 本月新品文字置中 -->
+  <div class="center-text">
+    <br> 
+    <h2>本月新品</h2>
+  </div>
+  <main>
+    <section class="product" onclick="window.location.href='product.html?product=SAMBA OG&price=售價：3680元'">
+      <img src="SAMBA OG.png" alt="SAMBA OG">
+      <h2>SAMBA OG</h2>
+      <br>
+      <p>NT$3680</p>
+    </section>
+    <section class="product" onclick="window.location.href='product.html?product=NIKE DUNK HI RETRO BTTYS&price=售價：4680元'">
+      <img src="NIKE DUNK HI RETRO BTTYS.png" alt="NIKE DUNK HI RETRO BTTYS">
+      <h2>NIKE DUNK HI RETRO BTTYS</h2>
+      <p>NT$4680</p>
+    </section>
+
+    <section class="product" onclick="window.location.href='product.html?product=NIKE AIR FORCE 1&price=售價：3280元'">
+      <img src="NIKE AIR FORCE 1.png" alt="NIKE AIR FORCE 1">
+      <h2>NIKE AIR FORCE 1</h2>
+      <br>
+      <p>NT$3280</p>
+    </section>
+    <section class="product" onclick="window.location.href='product.html?product=CONVERSE 1970&price=售價：2680元'">
+      <img src="CONVERSE 1970.png" alt="CONVERSE 1970">
+      <h2>CONVERSE 1970</h2>
+      <br>
+      <p>NT$2680</p>
+    </section>
+      <img src="SHOSES.jpeg">
+    </section>
+  </main>
+  <script>
+    function openLoginForm() {
+      window.open("login.html", "_blank", "width=400,height=300");
+    }
+  </script>
+</body>
+</html>
