@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>關於我們</title>
+  <!-- 鏈接位於 "css" 文件夾中的樣式文件 -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1 class="about-title">Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="#">購物車</a></li>
+        <li><a href="#">訂單查詢</a></li>
+        <li><a href="#" onclick="openLoginForm()">會員登入</a></li>
+        <li><a href="about us.html">關於我們</a></li><!-- 將鏈接指向 "about us.html" 頁面 -->
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <img src="shopping cart.png" alt="購物車">
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+  <!-- 關於我們的內容 -->
+  <main>
+    <section>
+      <h2><span class="highlight-text">關於 Ian球鞋選貨王111</span></h2>
+      <br>
+      <p class="about-paragraph">
+        歡迎光臨Ian球鞋選貨王，您的最佳球鞋購物目的地。我們致力於提供最新潮的球鞋，無論您是籃球迷、足球迷還是潮流達人，我們都有適合您的選擇。
+      </p>
+      </br>
+      <p class="about-paragraph">
+        我們的使命是為您提供最高質量的球鞋，確保您的購物體驗愉快且無憂。我們的團隊精挑細選各種品牌，以滿足各種口味和需求。
+      </p>
+      </br>
+      <p class="about-paragraph">
+        不僅如此，我們還提供便捷的購物車和訂單查詢功能，以確保您能輕鬆管理您的購物和訂單狀態。
+      </p>
+      </br>
+      <p class="about-paragraph">
+        感謝您的支持，Ian球鞋選貨王將繼續努力，為您帶來最好的球鞋選擇。
+      </p>
+    </section>
+  </main>
+  <script>
+    function openLoginForm() {
+      window.open("login.html", "_blank", "width=400,height=300");
+    }
+  </script>
+</body>
+</html>
