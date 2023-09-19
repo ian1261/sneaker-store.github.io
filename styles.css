@@ -137,3 +137,52 @@ main {
 .highlight-text {
   color: blue;
 }
+
+/* 登录表单容器样式 */
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(50vh - 120px); /* 将容器高度减小 20px，也可以根据需要调整数值 */
+  margin-top: 20px; /* 添加顶部外边距来进一步上移 */
+}
+
+/* 登陸表單樣式 */
+.login-form {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.login-form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.login-form label {
+  font-size: 16px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.login-form input[type="submit"] {
+  width: 100%;
+  background-color: rgb(182, 106, 106);
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: #0073e6;
+}
