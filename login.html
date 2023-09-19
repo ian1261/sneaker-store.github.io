@@ -1,51 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>會員登入</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <style>
-    .error {
-      color: red;
-      margin-top: 10px;
-    }
-  </style>
+  <title>Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
-  <div class="container">
-    <h2>會員登入</h2>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-       會員登入
-    </button>
-
-    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="loginModalLabel">會員登入</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form id="loginForm" onsubmit="login(event)">
-              <div class="form-group">
-                <label for="username">帳號：</label>
-                <input type="text" class="form-control" id="username" required>
-              </div>
-              <div class="form-group">
-                <label for="password">密碼：</label>
-                <input type="password" class="form-control" id="password" required>
-              </div>
-              <div id="error" class="error"></div>
-              <button type="submit" class="btn btn-primary">登入</button>
-            </form>
-          </div>
-        </div>
-      </div>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="#">購物車</a></li>
+        <li><a href="#">訂單查詢</a></li>
+        <li><a href="login.html">會員</a></li>
+        <li><a href="about us.html">關於我們</a></li>
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <img src="shopping cart.png" alt="購物車">
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+  
+  <div class="login-form-container">
+    <div class="login-form">
+      <h2>會員登入</h2>
+      <form action="login_handler.php" method="post">
+        <label for="username">帳號：</label>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password">密碼：</label>
+        <input type="password" id="password" name="password" required><br><br>
+        <input type="submit" value="登入">
+      </form>
     </div>
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="imageRotation.js"></script>
   <script>
+    function openLoginForm() {
+      window.open("login.html", "_blank", "width=400,height=300");
+    }
+  </script>
+</body>
+</html>
