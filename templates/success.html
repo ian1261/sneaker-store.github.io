@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+  <style>
+    .center-text {
+      text-align: center;
+    }
+    .marquee {
+      width: 100%;
+      margin: 100 auto;
+      white-space: nowrap;
+      overflow: hidden;
+      box-sizing: border-box;
+      animation: marquee 20s linear infinite;
+    }
+    @keyframes marquee {
+      50% { transform: translateX(100%); }
+      50% { transform: translateX(100%); }
+    }
+    .button1 {
+      display: inline-block;
+      padding: 10px 50px;
+      background-color: #062e77;
+      color: white;
+      border: none;
+      text-align: center;
+      text-decoration: none;
+      font-size: 20px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .marquee p {
+      font-size: 24px;
+      color: rgb(14, 14, 14);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="{{ url_for('cart') }}">購物車</a></li>
+        <li><a href="{{ url_for('login') }}">會員登入</a></li>
+        <li><a href="{{ url_for('about') }}">關於我們</a></li>
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <img src="../static/shopping cart.png" alt="購物車">
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+  <div class="marquee">
+    <p>多款入秋限定球鞋已上線！！！快來挖寶</p>
+    </div>
+      <br> 
+      <div class="center-text">
+      <h2 style="color: orange;">登入成功，一起體驗球鞋的樂趣吧！</h2>
+      <br> 
+    <div>
+    <button class="button1" onclick="window.location.href='{{ url_for('SAMBA') }}'">站長推薦－時尚SAMBA</button>
+    <h2>本月新品</h2>
+    <div><a href="/signout">登出</a></div>
+  <main>
+    <section class="product" onclick="window.location.href='{{ url_for('SAMBA') }}'">
+      <img src="../static/shoes/SAMBA OG.png" alt="SAMBA OG">
+      <h2>SAMBA OG</h2>
+      <br>
+      <p>NT$3680</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('SAMBA') }}'">
+      <img src="../static/shoes/NIKE JA1.png" alt="NIKE JA1">
+      <h2>NIKE JA1</h2>
+      <br>
+      <p>NT$3680</p>
+    </section>
+    <section class="product" onclick="window.location.href='product.html?product=NIKE DUNK HI RETRO BTTYS&price=售價：4680元'">
+      <img src="../static/shoes/NIKE DUNK HI RETRO BTTYS.png" alt="NIKE DUNK HI RETRO BTTYS">
+      <h2>NIKE DUNK HI RETRO BTTYS</h2>
+      <p>NT$4680</p>
+    </section>
+    <section class="product" onclick="window.location.href='NIKE AIR FORCE1.html?product=NIKE AIR FORCE 1&price=售價：3280元'">
+      <img src="../static/shoes/NIKE AIR FORCE 1.png" alt="NIKE AIR FORCE 1">
+      <h2>NIKE AIR FORCE 1</h2>
+      <br>
+      <p>NT$3280</p>
+    </section>
+    <div style="display: flex; flex-direction: column;">
+    <section>
+      <img src="../static/pay2.png" style="display: block; margin: 0 auto;">
+    </section>
+    <br>
+    <section>
+      <img src="../static/shoes/SHOSES.jpeg">
+    </section>
+  </main>
+  <section>
+</body>
+</html>

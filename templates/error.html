@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>產品資訊 - Ian球鞋選貨王</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Ian球鞋選貨王</h1>
+        <nav>
+          <ul>
+            <li><a href="{{ url_for('index') }}">首頁</a></li>
+            <li><a href="#">商品</a></li>
+            <li><a href="#">購物車</a></li>
+            <li><a href="{{ url_for('login') }}">會員登入</a></li>
+            <li><a href="{{ url_for('about') }}">關於我們</a></li><!-- 將鏈接指向 "about us.html" 頁面 -->
+          </ul>
+        </nav>
+        <!-- 購物車 -->
+        <div class="cart-icon">
+          <img src="../static/shopping cart.png" alt="購物車">
+        </div>
+        <!-- 購物車功能 -->
+        <div class="cart-items">
+          <!-- 購物車內訊息 -->
+        </div>
+      </header>
+      </body>
+      <br>
+      <br>
+      <div class="center-text">
+        <h2>發生錯誤，請聯繫客服!!!</h2>
+      <br>
+        <h2>{{ message }}</h2>
+      </div>
+</body>
+</html>

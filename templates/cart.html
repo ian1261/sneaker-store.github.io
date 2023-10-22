@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>購物車 - Ian球鞋選貨王</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <style>
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .cart-content {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        .cart-items {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .cart-icon {
+            margin-top: 20px;
+        }
+
+        .cart-details {
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Ian球鞋選貨王</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">首頁</a></li>
+                <li><a href="#">商品</a></li>
+                <li><a href="#">購物車</a></li>
+                <li><a href="{{ url_for('login') }}">會員登入</a></li>
+                <li><a href="{{ url_for('about') }}">關於我們</a></li>
+            </ul>
+        </nav>
+        <!-- 購物車 -->
+        <div class="cart-icon">
+            <img src="../static/shopping cart.png" alt="購物車">
+        </div>
+        <!-- 購物車功能 -->
+        <div class="cart-items">
+            <!-- 購物車內訊息 -->
+        </div>
+    </header>
+    <div class="cart-container">
+        <div class="cart-content">
+            <h2>購物車內容</h2>
+            <br>
+            {% for purchase in purchases %}
+            <div class="cart-details">
+                <p>商品名稱：{{ purchase.product_name }}</p>
+                <p>尺寸：{{ purchase.size }}</p>
+                <p>數量：{{ purchase.quantity }}</p>
+                <p>金額：{{ purchase.price }}</p>
+            </div>
+        {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

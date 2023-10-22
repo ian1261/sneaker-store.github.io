@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>註冊 - Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+  <style>
+    input[type="email"] {
+        width: 100%; /* 設置寬度與其他輸入框相同 */
+        padding: 10px; /* 添加填充 */
+        margin: 5px 0; /* 添加外邊距 */
+        box-sizing: border-box; /* 設置框模型為邊框框模型 */
+        border: 1px solid #ccc; /* 設置邊框顏色 */
+    }
+</style>
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="#">購物車</a></li>
+        <li><a href="{{ url_for('login') }}">會員登入</a></li>
+        <li><a href="{{ url_for('about') }}">關於我們</a></li><!-- 將鏈接指向 "about us.html" 頁面 -->
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <img src="../static/shopping cart.png" alt="購物車">
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+
+  <!-- 將表單置中 -->
+  <div class="registration-form-container">
+    <div class="registration-form">
+      <h2>會員註冊</h2>
+      <form action="/signup" method="post">
+        姓名<input type="text" name="nickname" /><br/>
+        信箱<input type="email" name="email" required /><br/>
+        帳號<input type="text" name="account" /><br/>
+        密碼<input type="password" name="password" /><br/>
+        <input type="submit" value="註冊">
+      </form>
+    </div>
+  </div>
+
+  <script src="imageRotation.js"></script>
+</body>
+</html>

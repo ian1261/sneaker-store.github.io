@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="#">購物車</a></li>
+        <li><a href="{{ url_for('login') }}">會員登入</a></li>
+        <li><a href="{{ url_for('about') }}">關於我們</a></li><!-- 將鏈接指向 "about us.html" 頁面 -->
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <img src="../static/shopping cart.png" alt="購物車">
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+  <div class="login-form-container">
+    <div class="login-form">
+      <h2>會員登入</h2>
+      <form action="/signin" method="post">
+        帳號<input type="text" name="account" required></br>
+        密碼<input type="password" name="password" required></br>
+        <input type="submit" value="登入">
+      </form>
+  <!-- 會員註冊連結移到底部並下移一點 -->
+  <div class="register-link-bottom" style="text-align: center; margin-top: 20px;">
+    <p>還不是會員？<a href="{{ url_for('register') }}">註冊會員</a></p>
+  </div>
+
+  <script src="imageRotation.js"></script>
+  <script>
+    function openLoginForm() {
+      window.open("login.html", "_blank", "width=400,height=300");
+    }
+  </script>
+</body>
+</html>

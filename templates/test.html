@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/index.css') }}">
+{% endblock %}
+{% block title %}
+    台北一日遊
+{% endblock %}
+
+{% block section %}
+    <div class="welcome">
+        <div class="slogan">
+            <p style="font-size: 28px;">輕鬆享受台北一日悠閒</p>
+            <p style="font-size: 16px;">探索每個角落，體驗城市的深度旅遊行程</p>
+        </div>
+        <form class="search">
+            <input name="keyword" type="text" placeholder="輸入景點名稱查詢">
+            <button type="button" id="btn"></button>
+        </form>
+    </div>
+{% endblock %}
+
+{% block main %}
+    <ul id="attractions" style="display: none;"></ul>
+    <h2 id="finish"></h2>
+{% endblock %}
+
+{% block js %}
+    <script src="{{ url_for('static', filename = 'js/index.js') }}"></script>
+{% endblock %}

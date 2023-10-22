@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>產品資訊 - Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">首頁</a></li>
+        <li><a href="#">商品</a></li>
+        <li><a href="{{ url_for('cart') }}">購物車</a></li>
+        <li><a href="{{ url_for('login') }}">會員登入</a></li>
+        <li><a href="{{ url_for('about') }}">關於我們</a></li>
+      </ul>
+    </nav>
+    <div class="cart-icon">
+      <img src="../static/shopping cart.png" alt="購物車">
+    </div>
+    <div class="cart-items"></div>
+  </header>
+  <main>
+    <div class="product-container">
+      <div class="extra-product-images">
+        <img src="../static/SAMBA OG/SAMBA OG.png" alt="額外商品1" onclick="changeMainImage(this)">
+        <img src="../static/SAMBA OG/SAMBA OG(1).png" alt="額外商品2" onclick="changeMainImage(this)">
+        <img src="../static/SAMBA OG/SAMBA OG(2).png" alt="額外商品3" onclick="changeMainImage(this)">
+        <img src="../static/SAMBA OG/SAMBA OG(3).png" alt="額外商品3" onclick="changeMainImage(this)">
+      </div>
+      <div class="product-details">
+        <img id="mainProductImage" src="../static/SAMBA OG/SAMBA OG.png" alt="SAMBA OG">
+        <br>
+        <h2>SAMBA OG</h2>
+        <br>
+        <p>NT$3680</p>
+        <br>
+        <p>Samba 鞋款最初被設計為專業足球訓練鞋，同時在街頭流行上佔有相當重要<br>的地位。鞋面採用柔軟皮革和麂皮拼接而成，保留經典韻味。</p>
+        <br>
+        <div class="quantity-buttons">
+          <span class="quantity-label">數量：</span>
+          <input class="quantity-input" type="number" min="1" max="5" value="1">
+        </div>
+        <button class="add-to-cart-button" onclick="addToCart()">加入購物車</button>
+        <div class="size-buttons">
+          <button class="size-button" onclick="selectSize(this)">US5.5/23.5CM</button>
+          <button class="size-button" onclick="selectSize(this)">US6/24CM</button>
+          <button class="size-button" onclick="selectSize(this)">US6.5/24.5CM</button>
+          <button class="size-button" onclick="selectSize(this)">US7/25CM</button>
+          <button class="size-button" onclick="selectSize(this)">US7.5/25.5CM</button>
+          <button class="size-button" onclick="selectSize(this)">US8/26CM</button>
+          <button class="size-button" onclick="selectSize(this)">US8.5/26.5CM</button>
+          <button class="size-button" onclick="selectSize(this)">US9/27CM</button>
+          <button class="size-button" onclick="selectSize(this)">US9.5/27.5CM</button>
+          <button class="size-button" onclick="selectSize(this)">US10/28CM</button>
+          <button class="size-button" onclick="selectSize(this)">US10.5/28.5CM</button>
+          <button class="size-button" onclick="selectSize(this)">US11/29CM</button>
+        </div>
+      </div>
+    </div>
+    <div style="margin-bottom: 40px;"></div>
+  </main>
+
+  <script>
+    var selectedSize = "";
+
+    function openLoginForm() {
+      window.open("login.html", "_blank", "width=400,height=300");
+    }
+
+    function selectSize(button) {
+      var sizeButtons = document.querySelectorAll(".size-button");
+      sizeButtons.forEach(function(sizeButton) {
+        sizeButton.classList.remove("selected");
+      });
+
+      button.classList.add("selected");
+      selectedSize = button.textContent;
+    }
+
+    function changeMainImage(imageElement) {
+      var newImageSrc = imageElement.src;
+      var mainImage = document.getElementById("mainProductImage");
+      mainImage.src = newImageSrc;
+
+      var smallImages = document.querySelectorAll(".extra-product-images img");
+      smallImages.forEach(function(smallImage) {
+        smallImage.classList.remove("selected-image");
+      });
+
+      imageElement.classList.add("selected-image");
+    }
+
+    function addToCart() {
+      if (selectedSize) {
+        var quantityInput = document.querySelector(".quantity-input");
+        var selectedQuantity = parseInt(quantityInput.value);
+        var price = 3680;
+
+        if (selectedQuantity >= 1 && selectedQuantity <= 5) {
+          var data = {
+            product_name: "SAMBA OG",
+            size: selectedSize,
+            quantity: selectedQuantity,
+            price: price
+          };
+
+          var xhr = new XMLHttpRequest();
+          xhr.open("POST", "/add_to_cart", true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+          xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              if (xhr.status === 200) {
+                alert("已將 " + data.quantity + " 雙 " + data.size + " 尺寸的鞋子添加到購物車。");
+              } else {
+                alert("添加到購物車失敗。");
+              }
+            }
+          };
+          xhr.send(JSON.stringify(data));
+        } else {
+          alert("請選擇1到5雙鞋子。");
+        }
+      } else {
+        alert("請選擇尺寸。");
+      }
+    }
+  </script>
+
+  <style>
+    /* 圖片樣式 */
+    .extra-product-images {
+      display: flex;
+      flex-direction: column; /* 垂直排列 */
+      align-items: flex-start; /* 左對齊 */
+    }
+
+    .extra-product-images img {
+      width: 100px; /* 設定圖片寬度 */
+      height: auto; /* 保持衝橫比 */
+      margin-bottom: 10px; /* 添加底部間距 */
+      cursor: pointer; /* 添加滑鼠指針樣式以指示可以點擊 */
+    }
+
+    .selected-image {
+      border: 2px solid #007bff; /* 添加選中時的邊框樣式 */
+    }
+
+    /* 產品訊息和尺碼按鈕的容器 */
+    .product-container {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* 產品訊息 */
+    .product-details {
+      width: 100%; /* 設置產品訊息寬度 */
+    }
+
+    /* 尺碼按鈕樣式 */
+    .size-buttons {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 每排3个按鈕 */
+      grid-gap: 5px; /* 設置按鈕之间的間距 */
+      margin-top: 10px; /* 向下移動按鈕 */
+    }
+
+    .size-button {
+      margin-bottom: 10px;
+      padding: 10px 50px; /* 調短訊息按鈕 */
+      background-color: #007bff;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .size-button.selected {
+      background-color: #0056b3; /* 反白颜色 */
+    }
+
+    /* 加入購物車按鈕樣式 */
+    .add-to-cart-button {
+      padding: 10px 30px; /* 增加按钮的寬度和高度 */
+      background-color: rgb(182, 106, 106);
+      color: rgb(245, 243, 243);
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 20px; /* 增加按按鈕尺碼按紐之间的間距 */
+      display: block; /* 讓按鈕獨佔一行 */
+    }
+
+    .add-to-cart-button:hover {
+      background-color: #0056b3;
+    }
+
+    /* 大图样式 */
+    .product-details img {
+      max-width: 100%; /* 图片宽度不超過容器寬度 */
+      height: auto; /* 保持高度自動調整 */
+    }
+  </style>
+
+</body>
+</html>
