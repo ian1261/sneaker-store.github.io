@@ -1,3 +1,4 @@
+
 var selectedSize = "";
 
 function openLoginForm() {
@@ -31,11 +32,11 @@ function addToCart() {
 if (selectedSize) {
 var quantityInput = document.querySelector(".quantity-input");
 var selectedQuantity = parseInt(quantityInput.value);
-var price = 3680;
+var price = 3280;
 
 if (selectedQuantity >= 1 && selectedQuantity <= 5) {
   var data = {
-    product_name: "ADIDAS SAMBA OG",
+    product_name: "NIKE AIR FORCE1",
     size: selectedSize, // 使用全局變量 selectedSize
     quantity: selectedQuantity,
     price: price
