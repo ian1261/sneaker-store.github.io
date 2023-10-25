@@ -3,6 +3,7 @@
 <head>
   <title>產品資訊 - Ian球鞋選貨王</title>
   <link rel="stylesheet" type="text/css" href="static/styles.css">
+  <script src="../static/js/FORCE.js"></script>
 </head>
 <body>
   <header>
@@ -27,9 +28,9 @@
     <div class="product-container">
       <div class="extra-product-images">
         <img src="../static/force/force.png" alt="額外商品1" onclick="changeMainImage(this)">
-        <img src="../static/SAMBA OG/SAMBA OG(1).png" alt="額外商品2" onclick="changeMainImage(this)">
-        <img src="../static/SAMBA OG/SAMBA OG(2).png" alt="額外商品3" onclick="changeMainImage(this)">
-        <img src="../static/SAMBA OG/SAMBA OG(3).png" alt="額外商品3" onclick="changeMainImage(this)">
+        <img src="../static/force/force(1).png" alt="額外商品2" onclick="changeMainImage(this)">
+        <img src="../static/force/force(2).png" alt="額外商品3" onclick="changeMainImage(this)">
+        <img src="../static/force/force(3).png" alt="額外商品3" onclick="changeMainImage(this)">
       </div>
       <div class="product-details">
         <img id="mainProductImage" src="../static/force/force.png" alt="force">
@@ -38,7 +39,7 @@
         <br>
         <p>NT$3680</p>
         <br>
-        <p>Samba 鞋款最初被設計為專業足球訓練鞋，同時在街頭流行上佔有相當重要<br>的地位。鞋面採用柔軟皮革和麂皮拼接而成，保留經典韻味。</p>
+        <p>讓 Nike Air Force 1 ’07 盡情閃耀光輝。這款籃球界的原版之作，為你我熟悉的經典增添全新亮點<br>搭配恰到好處的迷人光芒，讓你大放異彩。</p>
         <br>
         <div class="quantity-buttons">
           <span class="quantity-label">數量：</span>
@@ -63,74 +64,6 @@
     </div>
     <div style="margin-bottom: 40px;"></div>
   </main>
-
-  <script>
-    var selectedSize = "";
-
-    function openLoginForm() {
-      window.open("login.html", "_blank", "width=400,height=300");
-    }
-
-    function selectSize(button) {
-      var sizeButtons = document.querySelectorAll(".size-button");
-      sizeButtons.forEach(function(sizeButton) {
-        sizeButton.classList.remove("selected");
-      });
-
-      button.classList.add("selected");
-      selectedSize = button.textContent;
-    }
-
-    function changeMainImage(imageElement) {
-      var newImageSrc = imageElement.src;
-      var mainImage = document.getElementById("mainProductImage");
-      mainImage.src = newImageSrc;
-
-      var smallImages = document.querySelectorAll(".extra-product-images img");
-      smallImages.forEach(function(smallImage) {
-        smallImage.classList.remove("selected-image");
-      });
-
-      imageElement.classList.add("selected-image");
-    }
-
-    function addToCart() {
-  if (selectedSize) {
-    var quantityInput = document.querySelector(".quantity-input");
-    var selectedQuantity = parseInt(quantityInput.value);
-    var price = 3680;
-
-    if (selectedQuantity >= 1 && selectedQuantity <= 5) {
-      var data = {
-        product_name: "SAMBA OG",
-        size: selectedSize, // 使用全局變量 selectedSize
-        quantity: selectedQuantity,
-        price: price
-      };
-
-      var xhr = new XMLHttpRequest();
-      xhr.open("POST", "/add_to_cart", true);
-      xhr.setRequestHeader("Content-Type", "application/json");
-      xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-          if (xhr.status === 200) {
-            alert("已將 " + data.quantity + " 雙 " + data.size + " 尺寸的鞋子添加到購物車。");
-          } else {
-            alert("添加到購物車失敗。");
-          }
-        }
-      };
-      xhr.send(JSON.stringify(data));
-    } else {
-      alert("請選擇1到5雙鞋子。");
-    }
-  } else {
-    alert("請選擇尺寸。");
-  }
-}
-
-  </script>
-
   <style>
     /* 圖片樣式 */
     .extra-product-images {
