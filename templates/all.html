@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Ian球鞋選貨王</title>
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">首頁</a></li>
+        <li><a href="{{ url_for('all') }}">所有商品</a></li>
+        <li><a href="{{ url_for('cart') }}">購物車</a></li>
+        <li><a href="{{ url_for('login') }}">會員登錄</a></li>
+        <li><a href="{{ url_for('about') }}">關於我們</a></li>
+      </ul>
+    </nav>
+    <!-- 购物车 -->
+    <div class="cart-icon">
+      <a href="{{ url_for('cart') }}">
+        <img src="../static/shopping cart.png" alt="购物车"> 
+      </a>
+    </div>
+    <!-- 购物车功能 -->
+    <div class="cart-items">
+      <!-- 购物车内信息 -->
+    </div>
+  </header>
+  <div class="center-text">
+    <br> 
+      <h2>所有球鞋</h2>
+  </div>
+  <main>
+    <section class="product" onclick="window.location.href='{{ url_for('SAMBA') }}'">
+      <img src="../static/SAMBA OG/SAMBA OG.png" alt="SAMBA">
+      <h2> ADIDAS SAMBA</h2>
+      <p>NT$3680</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('JA1') }}'">
+      <img src="../static/JA1/JA1.png" alt="NIKE JA1">
+      <h2>NIKE JA1</h2>
+      <p>NT$4000</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('force') }}'">
+      <img src="../static/force/force.png" alt="Air force1">
+      <h2>NIKE AIR FORCE1</h2>
+      <p>NT$3280</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('max') }}'">
+      <img src="../static/max/max.png" alt="Air Max1">
+      <h2>NIKE AIR MAX1</h2>
+      <p>NT$4380</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/superstar/su.png" alt="Air Max1">
+      <h2>ADIDAS SUPERSTAR</h2>
+      <p>NT$2380</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('nb5740') }}'">
+      <img src="../static/5740/5740.png" alt="Air Max1">
+      <h2>NEW BALANCE 5740</h2>
+      <p>NT$4580</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('nb327') }}'">
+      <img src="../static/327/327.png" alt="Air Max1">
+      <h2>NEW BALANCE 327</h2>
+      <p>NT$3680</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/ga.png" alt="Air Max1">
+      <h2>ADIDAS GAZELLE</h2>
+      <p>NT$3280</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/jordan1.png" alt="Air Max1">
+      <h2>AIR JORDAN 1</h2>
+      <p>NT$5380</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/dunk.png" alt="Air Max1">
+      <h2>NIKE DUNK HI</h2>
+      <p>NT$4380</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/550.png" alt="Air Max1">
+      <h2>NEW BALANCE 550</h2>
+      <p>NT$3380</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/ut.png" alt="Air Max1">
+      <h2>NIKE UT</h2>
+      <p>NT$4780</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/wh.png" alt="Air Max1">
+      <h2>NIKE DUNK</h2>
+      <p>NT$3380</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/nb996.png" alt="Air Max1">
+      <h2>NEW BALANCE 996</h2>
+      <p>NT$3380</p>
+    </section>
+    <section class="product" onclick="window.location.href='{{ url_for('su') }}'">
+      <img src="../static/hi.png" alt="Air Max1">
+      <h2>NIKE DUNK HI</h2>
+      <p>NT$5380</p>
+    </section>
+  </main>
+  <section>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>關於我們</title>
+  <!-- 鏈接位於 "css" 文件夾中的樣式文件 -->
+  <link rel="stylesheet" type="text/css" href="../static/styles.css">
+  <style>
+
+    .map-container {
+      margin-top: 20px;
+      margin-left: 200px; /* 調整地圖水平位置 */
+    }
+
+    /* 设置地图样式 */
+    .map-container iframe {
+      border: 0;
+      width: 600px;
+      height: 450px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Ian球鞋選貨王</h1>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for('index') }}">首頁</a></li>
+        <li><a href="{{ url_for('all') }}">所有商品</a></li>
+        <li><a href="{{ url_for('cart') }}">購物車</a></li>
+        <li><a href="{{ url_for('order') }}">購買記錄</a></li>
+        <li><a href="/signout" >會員登出</a></li>
+        <li><a href="{{ url_for('about') }}">關於我們</a></li><!-- 將鏈接指向 "about us.html" 頁面 -->
+      </ul>
+    </nav>
+    <!-- 購物車 -->
+    <div class="cart-icon">
+      <a href="{{ url_for('cart') }}">
+        <img src="../static/shopping cart.png" alt="購物車"> 
+      </a>
+    </div>
+    <!-- 購物車功能 -->
+    <div class="cart-items">
+      <!-- 購物車內訊息 -->
+    </div>
+  </header>
+  <!-- 關於我們的內容 -->
+  <main>
+    <div class="container">
+      <section>
+        <h2><span class="highlight-text">  感謝您的購買！！！</span></h2>
+        <br>
+        <p class="about-paragraph">
+        
+        </p>
+        <img src="../static/ok.png" alt="Image description">
+      </section>
+    </div>
+  </main>
+</body>
+</html>

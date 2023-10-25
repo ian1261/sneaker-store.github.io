@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>購買記錄</title>
+    <link rel="stylesheet" type="text/css" href="../static/styles.css">
+    <script src="../static/js/CART.js"></script>
+    <style>
+        .cart-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .cart-content {
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .cart-items {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        header {
+            text-align: center;
+        }
+
+        .cart-icon {
+            margin-top: 20px;
+        }
+
+        .cart-details {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: none;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        th {
+    background-color: rgb(195, 102, 56); /* 設置表格頭部的底色為紅色 */
+}
+
+tr:nth-child(n+2) {
+    background-color: white; /* 設置除了第一行以外的其他行的底色為白色 */
+
+}
+</style>
+</head>
+<body>
+    <header>
+        <h1>Ian球鞋選貨王</h1>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('index') }}">首頁</a></li>
+                <li><a href="{{ url_for('all') }}">所有商品</a></li>
+                <li><a href="{{ url_for('cart') }}">購物車</a></li>
+        <li><a href="{{ url_for('order') }}">購買記錄</a></li>
+                <li><a href="{{ url_for('about') }}">關於我們</a></li>
+            </ul>
+        </nav>
+        <!-- 購物車 -->
+        <div class="cart-icon">
+            <a href="{{ url_for('cart') }}">
+                <img src="../static/shopping cart.png" alt="購物車"> 
+            </a>
+        </div>
+        <!-- 購物車功能 -->
+        <div class="cart-items">
+            <!-- 購物車內訊息 -->
+        </div>
+    </header>
+    <div class="cart-container">
+        <div class="cart-content">
+            <h2>歷史訂單</h2>
+            <br>
+            <table>
+                <table>
+                    <tr>
+                        <th style="border-bottom: 1px solid #ddd; background-color: rgb(246, 195, 170);">購買日期</th>
+                        <th style="border-bottom: 1px solid #ddd; background-color: rgb(246, 195, 170);">商品名稱</th>
+                        <th style="border-bottom: 1px solid #ddd; background-color: rgb(246, 195, 170);">尺寸</th>
+                        <th style="border-bottom: 1px solid #ddd; background-color: rgb(246, 195, 170);">數量</th>
+                        <th style="border-bottom: 1px solid #ddd; background-color: rgb(246, 195, 170);">金額</th>
+                    </tr>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{ order.date }}</td>
+                        <td>{{ order.product_name }}</td>
+                        <td>{{ order.size }}</td>
+                        <td>{{ order.quantity }}</td>
+                        <td>{{ order.total|int }} 元</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+        
+            </table>
+            <div id="total" style="text-align: right; margin-top: 20px; font-size: 20px;"></div>
+    </table>
+    </div>
+</body>
+</html>

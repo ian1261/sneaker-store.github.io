@@ -59,6 +59,16 @@
 tr:nth-child(n+2) {
     background-color: white; /* 設置除了第一行以外的其他行的底色為白色 */
 }
+.add-to-cart-button {
+      padding: 10px 30px; /* 增加按钮的寬度和高度 */
+      background-color: rgb(182, 106, 106);
+      color: rgb(245, 243, 243);
+      text-align: center;
+      text-decoration: none;
+      cursor: pointer;
+      margin-top: 20px; /* 增加按按鈕尺碼按紐之间的間距 */
+      display: block; /* 讓按鈕獨佔一行 */
+    }
     </style>
 </head>
 <body>
@@ -67,9 +77,9 @@ tr:nth-child(n+2) {
         <nav>
             <ul>
                 <li><a href="{{ url_for('index') }}">首頁</a></li>
-                <li><a href="#">商品</a></li>
-                <li><a href="#">購物車</a></li>
-                <li><a href="{{ url_for('login') }}">會員登入</a></li>
+                <li><a href="{{ url_for('all') }}">首頁</a></li>
+                <li><a href="{{ url_for('cart') }}">購物車</a></li>
+                <li><a href="{{ url_for('order') }}">購買記錄</a></li>
                 <li><a href="{{ url_for('about') }}">關於我們</a></li>
             </ul>
         </nav>
@@ -110,6 +120,7 @@ tr:nth-child(n+2) {
             </table>
             <div id="total" style="text-align: right; margin-top: 20px; font-size: 20px;"></div>
         </div>
+            <button class="add-to-cart-button" onclick="confirmPurchase();ok()">確認購買</button>
     </div>
     <script>
 let purchases = [{% for purchase in purchases %}{ "quantity": {{ purchase.quantity }}, "price": {{ purchase.price }} }{% if not loop.last %}, {% endif %}{% endfor %}];
@@ -143,11 +154,34 @@ function removeItem(element, productName, size) {
         location.reload(); // 在成功刪除後重新加載頁面
     })
     .catch(error => console.error('Error:', error));
+
 }
 
 
 // 初始計算總金額
 updateTotal();        
+
+
+function confirmPurchase() {
+        fetch('/confirm_purchase', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ purchases: purchases })
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            alert(data.message);
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+function ok(){
+    window.location.href = "/ok"
+}
+
     </script>
 </body>
 </html>
