@@ -17,7 +17,7 @@
             padding: 20px;
             border-radius: 5px;
         }
-
+        
         .cart-items {
             margin-top: 20px;
             text-align: center;
@@ -35,6 +35,30 @@
             margin-top: 20px;
             text-align: center;
         }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: none;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            text-align: left;
+        }
+        th {
+    background-color: rgb(132, 136, 167); /* 設置表格頭部的底色為紅色 */
+}
+
+tr:nth-child(n+2) {
+    background-color: white; /* 設置除了第一行以外的其他行的底色為白色 */
+}
     </style>
 </head>
 <body>
@@ -51,7 +75,9 @@
         </nav>
         <!-- 購物車 -->
         <div class="cart-icon">
-            <img src="../static/shopping cart.png" alt="購物車">
+            <a href="{{ url_for('cart') }}">
+                <img src="../static/shopping cart.png" alt="購物車"> 
+            </a>
         </div>
         <!-- 購物車功能 -->
         <div class="cart-items">
@@ -62,16 +88,66 @@
         <div class="cart-content">
             <h2>購物車內容</h2>
             <br>
-            {% for purchase in purchases %}
-            <div class="cart-details">
-                <p>商品名稱：{{ purchase.product_name }}</p>
-                <p>尺寸：{{ purchase.size }}</p>
-                <p>數量：{{ purchase.quantity }}</p>
-                <p>金額：{{ purchase.price }}</p>
-            </div>
-        {% endfor %}
-            </div>
+            <table>
+                <tr>
+                    <th style="border-bottom: 1px solid #ddd; background-color: rgb(132, 136, 167);">商品名稱</th>
+                    <th style="border-bottom: 1px solid #ddd; background-color: rgb(132, 136, 167);">尺寸</th>
+                    <th style="border-bottom: 1px solid #ddd; background-color: rgb(132, 136, 167);">數量</th>
+                    <th style="border-bottom: 1px solid #ddd; background-color: rgb(132, 136, 167);">金額</th>
+                    <th style="border-bottom: 1px solid #ddd; background-color: rgb(132, 136, 167);">修改</th>
+                </tr>
+                {% for purchase in purchases %}
+                <tr>
+                    <td style="border-bottom: 1px solid #ddd; white-space: nowrap;">{{ purchase.product_name }}</td>
+                    <td style="border-bottom: 1px solid #ddd;">{{ purchase.size }}</td>
+                    <td style="border-bottom: 1px solid #ddd;">{{ purchase.quantity }}</td>
+                    <td style="border-bottom: 1px solid #ddd;">{{ purchase.price|int }}</td>
+                    <td style="border-bottom: 1px solid #ddd;">
+                        <button onclick="removeItem(this, '{{ purchase.product_name }}', '{{ purchase.size }}')">刪除</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+            <div id="total" style="text-align: right; margin-top: 20px; font-size: 20px;"></div>
         </div>
     </div>
+    <script>
+let purchases = [{% for purchase in purchases %}{ "quantity": {{ purchase.quantity }}, "price": {{ purchase.price }} }{% if not loop.last %}, {% endif %}{% endfor %}];
+
+function updateTotal() {
+    const total = purchases.reduce((acc, item) => {
+        return acc + (item.quantity * item.price);
+    }, 0);
+    
+    const totalElement = document.getElementById('total');
+    totalElement.textContent = `總計金額：${total} 元`;
+}
+
+function removeItem(element, productName, size) {
+    // ...
+
+    fetch('/remove_from_cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            nickname: '{{ session["nickname"] }}',
+            product_name: productName,
+            size: size
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log(data);
+        location.reload(); // 在成功刪除後重新加載頁面
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+
+// 初始計算總金額
+updateTotal();        
+    </script>
 </body>
 </html>

@@ -4,10 +4,24 @@
   <title>關於我們</title>
   <!-- 鏈接位於 "css" 文件夾中的樣式文件 -->
   <link rel="stylesheet" type="text/css" href="../static/styles.css">
+  <style>
+
+    .map-container {
+      margin-top: 20px;
+      margin-left: 200px; /* 調整地圖水平位置 */
+    }
+
+    /* 设置地图样式 */
+    .map-container iframe {
+      border: 0;
+      width: 600px;
+      height: 450px;
+    }
+  </style>
 </head>
 <body>
   <header>
-    <h1 class="about-title">Ian球鞋選貨王</h1>
+    <h1>Ian球鞋選貨王</h1>
     <nav>
       <ul>
         <li><a href="{{ url_for('index') }}">首頁</a></li>
@@ -19,7 +33,9 @@
     </nav>
     <!-- 購物車 -->
     <div class="cart-icon">
-      <img src="../static/shopping cart.png" alt="購物車">
+      <a href="{{ url_for('cart') }}">
+        <img src="../static/shopping cart.png" alt="購物車"> 
+      </a>
     </div>
     <!-- 購物車功能 -->
     <div class="cart-items">
@@ -28,30 +44,32 @@
   </header>
   <!-- 關於我們的內容 -->
   <main>
-    <section>
-      <h2><span class="highlight-text">關於 Ian球鞋選貨王</span></h2>
-      <br>
-      <p class="about-paragraph">
-        歡迎光臨Ian球鞋選貨王，您的最佳球鞋購物目的地。我們致力於提供最新潮的球鞋，無論您是籃球迷、足球迷還是潮流達人，我們都有適合您的選擇。
-      </p>
-      </br>
-      <p class="about-paragraph">
-        我們的使命是為您提供最高質量的球鞋，確保您的購物體驗愉快且無憂。我們的團隊精挑細選各種品牌，以滿足各種口味和需求。
-      </p>
-      </br>
-      <p class="about-paragraph">
-        不僅如此，我們還提供便捷的購物車和訂單查詢功能，以確保您能輕鬆管理您的購物和訂單狀態。
-      </p>
-      </br>
-      <p class="about-paragraph">
-        感謝您的支持，Ian球鞋選貨王將繼續努力，為您帶來最好的球鞋選擇。
-      </p>
-    </section>
+        <div class="container">
+      <section>
+        <h2><span class="highlight-text">關於 Ian球鞋選貨王</span></h2>
+        <br>
+        <p class="about-paragraph">
+          歡迎光臨Ian球鞋選貨王，您的最佳球鞋購物目的地。我們致力於提供最新潮的球鞋，無論您是籃球迷、足球迷還是潮流達人，我們都有適合您的選擇。
+        </p>
+        </br>
+        <p class="about-paragraph">
+          我們的使命是為您提供最高質量的球鞋，確保您的購物體驗愉快且無憂。我們的團隊精挑細選各種品牌，以滿足各種口味和需求。
+        </p>
+        </br>
+        <p class="about-paragraph">
+          不僅如此，我們還提供便捷的購物車和訂單查詢功能，以確保您能輕鬆管理您的購物和訂單狀態。
+        </p>
+        </br>
+        <p class="about-paragraph">
+          感謝您的支持，Ian球鞋選貨王將繼續努力，為您帶來最好的球鞋選擇。
+        </p>
+      </section>
+      <!-- Google 地圖街景部分 -->
+      <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14640.377017276498!2d120.4438557!3d23.4570644!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346e95195dce24ab%3A0x2756f9d4d18ad0c1!2zSWFu55CD6Z6L6YG46LKo546L!5e0!3m2!1szh-TW!2stw!4v1698085618570!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
   </main>
-  <script>
-    function openLoginForm() {
-      window.open("login.html", "_blank", "width=400,height=300");
-    }
   </script>
 </body>
 </html>

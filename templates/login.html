@@ -18,7 +18,9 @@
     </nav>
     <!-- 購物車 -->
     <div class="cart-icon">
-      <img src="../static/shopping cart.png" alt="購物車">
+      <a href="{{ url_for('cart') }}">
+        <img src="../static/shopping cart.png" alt="購物車"> 
+      </a>
     </div>
     <!-- 購物車功能 -->
     <div class="cart-items">

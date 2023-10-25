@@ -51,7 +51,9 @@
     </nav>
     <!-- 購物車 -->
     <div class="cart-icon">
-      <img src="../static/shopping cart.png" alt="購物車">
+      <a href="{{ url_for('cart') }}">
+        <img src="../static/shopping cart.png" alt="購物車"> 
+      </a>
     </div>
     <!-- 購物車功能 -->
     <div class="cart-items">
@@ -64,25 +66,26 @@
   <div class="center-text">
     <br> 
     <button class="button1" onclick="window.location.href='{{ url_for('SAMBA') }}'">站長推薦－時尚SAMBA</button>
-    <h2>本月新品</h2>
+      <h2>本月新品</h2>
   </div>
   <main>
     <section class="product" onclick="window.location.href='{{ url_for('SAMBA') }}'">
-      <img src="../static/shoes/SAMBA OG.png" alt="SAMBA OG">
-      <h2>SAMBA OG</h2>
+      <img src="../static/SAMBA OG/SAMBA OG.png" alt="SAMBA">
+      <h2>SAMBA</h2>
       <br>
       <p>NT$3680</p>
     </section>
-    <section class="product" onclick="window.location.href='{{ url_for('SAMBA') }}'">
-      <img src="../static/shoes/NIKE JA1.png" alt="NIKE JA1">
+    <section class="product" onclick="window.location.href='{{ url_for('JA1') }}'">
+      <img src="../static/JA1/JA1.png" alt="NIKE JA1">
       <h2>NIKE JA1</h2>
       <br>
-      <p>NT$3680</p>
+      <p>NT$4000</p>
     </section>
-    <section class="product" onclick="window.location.href='product.html?product=NIKE DUNK HI RETRO BTTYS&price=售價：4680元'">
-      <img src="../static/shoes/NIKE DUNK HI RETRO BTTYS.png" alt="NIKE DUNK HI RETRO BTTYS">
-      <h2>NIKE DUNK HI RETRO BTTYS</h2>
-      <p>NT$4680</p>
+    <section class="product" onclick="window.location.href='{{ url_for('force') }}'">
+      <img src="../static/force/force.png" alt="Air force1">
+      <h2>Air Force1</h2>
+      <br>
+      <p>NT$3280</p>
     </section>
     <section class="product" onclick="window.location.href='NIKE AIR FORCE1.html?product=NIKE AIR FORCE 1&price=售價：3280元'">
       <img src="../static/shoes/NIKE AIR FORCE 1.png" alt="NIKE AIR FORCE 1">
