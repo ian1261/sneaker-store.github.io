@@ -3,7 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for, session, j
 from dotenv import load_dotenv
 import pymysql 
 import os
-
+import datetime
 load_dotenv()  
 
 db_password = os.getenv("DB_PASSWORD")
@@ -105,6 +105,42 @@ def SAMBA():
 def JA1():
     return render_template("JA1.html")
 
+@app.route("/force")
+def force():
+    return render_template("force.html")
+
+@app.route("/max")
+def max():
+    return render_template("max.html")
+
+@app.route("/su")
+def su():
+    return render_template("su.html")
+
+
+@app.route("/nb5740")
+def nb5740():
+    return render_template("5740.html")
+
+@app.route("/nb327")
+def nb327():
+    return render_template("327.html")
+
+@app.route("/all")
+def all():
+    return render_template("all.html")
+
+@app.route("/ok")
+def ok():
+    return render_template("ok.html")
+
+@app.route("/order")
+def order():
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM orders WHERE nickname=%s", (session["nickname"],))
+    orders = cursor.fetchall()
+    return render_template("order.html", orders=orders)
+
 @app.route("/signout")
 def signout():
     del session["nickname"]
@@ -149,6 +185,32 @@ def remove_from_cart():
     cursor.execute("DELETE FROM purchase WHERE nickname=%s AND product_name=%s AND size=%s", (nickname, product_name, size))
     db.commit()
     return jsonify({"message": "已從購物車中刪除商品"})
+
+@app.route("/confirm_purchase", methods=["POST"])
+def confirm_purchase():
+    if "nickname" not in session:
+        return redirect("/login")
+
+    nickname = session["nickname"]
+    date = datetime.datetime.now().date()
+
+    cursor = db.cursor()
+
+    cursor.execute("SELECT * FROM purchase WHERE nickname=%s", (nickname,))
+    purchases = cursor.fetchall()
+
+    total = sum([purchase["price"] * purchase["quantity"] for purchase in purchases])
+
+    for purchase in purchases:
+        cursor.execute("INSERT INTO orders (nickname, date, product_name, size, quantity, total) VALUES (%s, %s, %s, %s, %s, %s)",
+                       (nickname, date, purchase["product_name"], purchase["size"], purchase["quantity"], total))
+    db.commit()
+
+    # 清空購物車
+    cursor.execute("DELETE FROM purchase WHERE nickname=%s", (nickname,))
+    db.commit()
+    return redirect("/order")
+
 
 if __name__ == "__main__":
     app.run(port=3000)
