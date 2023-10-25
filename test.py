@@ -6,13 +6,13 @@ import os
 import datetime
 load_dotenv()  
 
-db_password = os.getenv("DB_PASSWORD")
+
 
 # 創建一個 MySQL 連線
 db = pymysql.connect(host='localhost',
                     port=3306,
                     user='root',
-                    password=db_password,
+                    password=12345678,
                     database='SNEAKERS',
                     charset='utf8mb4',
                     cursorclass=pymysql.cursors.DictCursor)
