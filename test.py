@@ -1,10 +1,9 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
-from dotenv import load_dotenv
 import pymysql 
 import os
 import datetime
-load_dotenv()  
+
 
 
 
