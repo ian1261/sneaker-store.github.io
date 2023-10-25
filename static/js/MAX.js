@@ -35,7 +35,7 @@ var price = 4380;
 
 if (selectedQuantity >= 1 && selectedQuantity <= 5) {
   var data = {
-    product_name: "Nike Air MAX1",
+    product_name: "Nike AIR MAX1",
     size: selectedSize, // 使用全局變量 selectedSize
     quantity: selectedQuantity,
     price: price

@@ -35,7 +35,7 @@ var price = 4000;
 
 if (selectedQuantity >= 1 && selectedQuantity <= 5) {
   var data = {
-    product_name: "JA1",
+    product_name: "NIKE JA1",
     size: selectedSize, // 使用全局變量 selectedSize
     quantity: selectedQuantity,
     price: price
