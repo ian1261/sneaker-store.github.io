@@ -6,6 +6,16 @@
 運用前後端分離架構的球鞋購物網站，透過 Amazon EC2 將網站上線。
 主要功能：
 
+User System：會員註冊、登入、登出
+
+Order System：球鞋瀏覽、下單、結帳
+
+Shopping Cart System：購物車系統
+
+Historical orders System：歷史訂單系統
+
+
+
     User System：會員註冊、登入、登出
     Order System：球鞋瀏覽、下單、結帳
     Shopping Cart System：購物車系統
