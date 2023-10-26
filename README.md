@@ -5,7 +5,7 @@ Frontend：HTML、CSS、JavaScript
 Backend：Python Flask、MySQL
 Cloud Service：AWS EC2
 
-##主要練習項目
+##主要練習項目##
 Git、GitHub 管理
 AWS 雲端服務
 MySQL 資料庫管理
