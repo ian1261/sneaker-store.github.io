@@ -35,3 +35,5 @@ RESTful API 開發
 MySQL 資料庫管理
 
 JavaScript AJAX API 串接
+
+Nginx
