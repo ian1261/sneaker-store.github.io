@@ -29,6 +29,8 @@ Git、GitHub 管理
 
 AWS 雲端服務
 
+RESTful API 開發
+
 MySQL 資料庫管理
 
 JavaScript AJAX API 串接
